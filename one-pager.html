@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2B Fijo Sales Tool — One Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #f4f6fa;
+    color: #1f2937;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  }
+
+  /* HEADER */
+  .header {
+    background: #0065BD;
+    padding: 36px 48px 28px;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    display: block;
+    height: 5px;
+    background: #FF5300;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+  }
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-box {
+    width: 48px; height: 48px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-box svg { width: 28px; height: 28px; }
+  .logo-text {}
+  .logo-text .eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.65); text-transform: uppercase;
+  }
+  .logo-text .name {
+    font-size: 22px; font-weight: 800; color: #fff; line-height: 1.1;
+  }
+  .header-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.9);
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+  .header-tagline {
+    margin-top: 20px;
+    font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.6;
+    max-width: 580px;
+  }
+  .header-tagline strong { color: #fff; }
+
+  /* BODY */
+  .body { padding: 40px 48px; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 1.8px;
+    text-transform: uppercase; color: #0065BD;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: #e5e7eb;
+  }
+
+  /* INTRO */
+  .intro {
+    font-size: 15.5px; line-height: 1.75; color: #374151;
+    margin-bottom: 36px;
+  }
+
+  /* FEATURE GRID */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .feature-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    background: #fafbfc;
+  }
+  .feature-card .fc-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .feature-card .fc-icon svg { width: 18px; height: 18px; }
+  .fc-blue  .fc-icon { background: #dbeafe; color: #0065BD; }
+  .fc-orange .fc-icon { background: #ffe1cf; color: #c94c00; }
+  .fc-green  .fc-icon { background: #dcfce7; color: #16a34a; }
+  .fc-purple .fc-icon { background: #ede9fe; color: #6d28d9; }
+  .fc-teal   .fc-icon { background: #ccfbf1; color: #0d9488; }
+  .fc-amber  .fc-icon { background: #fef3c7; color: #b45309; }
+
+  .feature-card .fc-title {
+    font-size: 14px; font-weight: 700; color: #111827; margin-bottom: 6px;
+  }
+  .feature-card .fc-desc {
+    font-size: 12.5px; color: #6b7280; line-height: 1.6;
+  }
+
+  /* BENEFITS */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .benefit-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid #e5e7eb;
+  }
+  .benefit-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #FF5300; flex-shrink: 0; margin-top: 5px;
+  }
+  .benefit-text { font-size: 13px; color: #374151; line-height: 1.55; }
+  .benefit-text strong { color: #111827; font-weight: 700; }
+
+  /* PROPOSAL FLOW */
+  .flow-section { margin-bottom: 36px; }
+  .flow-steps {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    background: #f0f5ff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    overflow: hidden;
+  }
+  .flow-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+  .flow-step::after {
+    content: '→';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #93c5fd;
+    font-weight: 700;
+  }
+  .flow-step:last-child::after { display: none; }
+  .flow-step .fs-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: #0065BD; color: #fff;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 8px;
+  }
+  .flow-step .fs-lbl {
+    font-size: 11px; font-weight: 600; color: #1e3a5f; line-height: 1.3;
+  }
+
+  /* ACCESS BOX */
+  .access-box {
+    background: #0065BD;
+    border-radius: 10px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    color: #fff;
+  }
+  .access-left .al-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 1.2px;
+    text-transform: uppercase; color: rgba(255,255,255,0.6);
+    margin-bottom: 4px;
+  }
+  .access-left .al-value {
+    font-size: 14px; font-weight: 600; color: #fff;
+  }
+  .access-divider {
+    width: 1px; height: 40px; background: rgba(255,255,255,0.2);
+  }
+  .access-note {
+    font-size: 12.5px; color: rgba(255,255,255,0.75); line-height: 1.5;
+    max-width: 280px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-left { font-size: 11.5px; color: #9ca3af; }
+  .footer-right { font-size: 11.5px; color: #9ca3af; }
+  .footer-right span { color: #FF5300; font-weight: 600; }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="header-logo">
+        <div class="logo-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12c5-7 15-7 20 0"/><path d="M5 16c4-5 10-5 14 0"/><path d="M9 19.5c2-2 4-2 6 0"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="eyebrow">Liberty Business</div>
+          <div class="name">B2B Fijo Sales Tool</div>
+        </div>
+      </div>
+      <div class="header-badge">SOHO / SMB</div>
+    </div>
+    <p class="header-tagline">
+      A <strong>single web platform</strong> that gives B2B sales reps instant access to all plan pricing, offers, and a proposal builder — in English and Spanish, on any device.
+    </p>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- WHAT IT COVERS -->
+    <div class="section-label">What the tool covers</div>
+
+    <div class="feature-grid">
+      <div class="feature-card fc-blue">
+        <div class="fc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          </svg>
+        </div>
+        <div class="fc-title">Plan Pricing</div>
+        <div class="fc-desc">All COAX, FTTx, and FMC plans with updated 2026 Rate Increase pricing for 1P, 2P, and 3P bundles.</div>
+      </div>
+
+      <div class="feature-card fc-orange">
+        <div class="fc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2 4 14h7l-1 8 9-12h-7z"/>
+          </svg>
+        </div>
+        <div class="fc-title">Limited Time Offers</div>
+        <div class="fc-desc">LTO table with List, Lead Offer, and FMC pricing side by side — filterable by technology and price type.</div>
+      </div>
+
+      <div class="feature-card fc-green">
+        <div class="fc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 2 2.6 6.6 7 .5-5.4 4.6 1.7 6.8L12 16.9 6.1 20.5l1.7-6.8L2.4 9.1l7-.5z"/>
+          </svg>
+        </div>
+        <div class="fc-title">Special Pricing</div>
+        <div class="fc-desc">Standalone internet specials, hardware, security, and managed services with current promotional rates.</div>
+      </div>
+
+      <div class="feature-card fc-teal">
+        <div class="fc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </div>
+        <div class="fc-title">Add-ons & Voice</div>
+        <div class="fc-desc">Internet add-ons, VoIP lines, video bundles, STB equipment, and hardware pricing all in one place.</div>
+      </div>
+
+      <div class="feature-card fc-purple">
+        <div class="fc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/>
+          </svg>
+        </div>
+        <div class="fc-title">Promotions</div>
+        <div class="fc-desc">Competitor penalty payment rules and customer referral program details with eligibility guidelines.</div>
+      </div>
+
+      <div class="feature-card fc-amber">
+        <div class="fc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/>
+          </svg>
+        </div>
+        <div class="fc-title">Proposal Builder</div>
+        <div class="fc-desc">Step-by-step quote generator that produces a branded, print-ready PDF in minutes — no spreadsheets needed.</div>
+      </div>
+    </div>
+
+    <!-- HOW IT HELPS -->
+    <div class="section-label">How it helps the sales rep</div>
+
+    <div class="benefits-grid">
+      <div class="benefit-row">
+        <div class="benefit-dot"></div>
+        <div class="benefit-text"><strong>No more outdated rate cards.</strong> All pricing reflects the 2026 Rate Increase and updates automatically when the tool is updated.</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-dot"></div>
+        <div class="benefit-text"><strong>Faster quote turnaround.</strong> A complete, branded customer proposal can be built and downloaded as a PDF in under 3 minutes.</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-dot"></div>
+        <div class="benefit-text"><strong>Fewer pricing errors.</strong> Bundle prices, add-ons, voice lines, and contract terms are all calculated automatically.</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-dot"></div>
+        <div class="benefit-text"><strong>Works in English and Spanish.</strong> The full tool — including the generated proposal — switches language with one click.</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-dot"></div>
+        <div class="benefit-text"><strong>No app or installation needed.</strong> Runs in any browser on desktop or mobile. Password-protected for internal use.</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-dot"></div>
+        <div class="benefit-text"><strong>Professional customer experience.</strong> The PDF includes the Liberty Business logo, all service details, pricing, contract term, and signature lines.</div>
+      </div>
+    </div>
+
+    <!-- PROPOSAL FLOW -->
+    <div class="flow-section">
+      <div class="section-label">Proposal builder — 7 simple steps</div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="fs-num">1</div>
+          <div class="fs-lbl">Technology</div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">2</div>
+          <div class="fs-lbl">Speed</div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">3</div>
+          <div class="fs-lbl">Bundle &amp; Lines</div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">4</div>
+          <div class="fs-lbl">Price Type</div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">5</div>
+          <div class="fs-lbl">Extras</div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">6</div>
+          <div class="fs-lbl">Contract Term</div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">7</div>
+          <div class="fs-lbl">Customer Info &amp; PDF</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCESS -->
+    <div class="access-box">
+      <div class="access-left">
+        <div class="al-label">Access link</div>
+        <div class="al-value">https://liberty-fijo-guide.vercel.app/</div>
+      </div>
+      <div class="access-divider"></div>
+      <div class="access-left">
+        <div class="al-label">Password</div>
+        <div class="al-value">B2BSales</div>
+      </div>
+      <div class="access-divider"></div>
+      <div class="access-note">Works on desktop and mobile. No download or installation required. For internal B2B sales team use only.</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">Liberty Business — B2B Fijo Sales Tool &nbsp;·&nbsp; Internal Use Only</div>
+    <div class="footer-right">SOHO / SMB &nbsp;·&nbsp; <span>2026</span></div>
+  </div>
+
+</div>
+</body>
+</html>

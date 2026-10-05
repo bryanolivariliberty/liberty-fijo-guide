@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B2B Fijo Sales Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- HEADER                                                                -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="brand">
+      <img src="assets/liberty-logo.png" alt="Liberty Business" class="brand-logo" />
+      <div class="brand-divider"></div>
+      <div class="brand-meta">
+        <span class="brand-meta-eyebrow" id="header-meta-eyebrow">Liberty Business</span>
+        <span class="brand-meta-title" id="header-meta-title">B2B Fijo Sales Tool</span>
+      </div>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <span class="header-pill" id="header-pill"></span>
+
+    <div class="lang-toggle">
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- TABS                                                                   -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div class="tabs-wrap">
+    <nav class="tabs-nav" id="tabs-nav"></nav>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- MAIN                                                                   -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <main>
+
+    <!-- GUIDE -->
+    <section class="tab-pane" id="pane-guide" data-screen-label="01 Guide">
+      <div class="guide-hero" id="guide-hero"></div>
+
+      <div class="how-grid" id="how-grid"></div>
+
+      <div class="section-head" id="rules-section-head"></div>
+
+      <div id="rules-wrap"></div>
+    </section>
+
+    <!-- PLANES -->
+    <section class="tab-pane" id="pane-planes" data-screen-label="02 Plans">
+      <div class="page-head">
+        <div class="page-head-left" id="plans-head"></div>
+      </div>
+      <div class="controls-row" id="plans-controls"></div>
+      <div class="info-pills" id="plans-info"></div>
+      <div id="plans-callout"></div>
+      <div class="plan-grid" id="plan-grid"></div>
+    </section>
+
+    <!-- LTO -->
+    <section class="tab-pane" id="pane-lto" data-screen-label="03 LTO">
+      <div class="page-head">
+        <div class="page-head-left" id="lto-head"></div>
+      </div>
+      <div class="controls-row" id="lto-controls"></div>
+      <div id="lto-callout"></div>
+      <div class="tbl-card">
+        <div class="tbl-scroll">
+          <table class="lto-tbl" id="lto-table"></table>
+        </div>
+      </div>
+      <div class="legend" id="lto-legend"></div>
+    </section>
+
+    <!-- ESPECIALES -->
+    <section class="tab-pane" id="pane-especiales" data-screen-label="04 Specials">
+      <div class="page-head">
+        <div class="page-head-left" id="spec-head"></div>
+      </div>
+      <div class="controls-row" id="spec-controls"></div>
+      <div class="special-grid" id="spec-grid"></div>
+    </section>
+
+    <!-- ADD-ONS -->
+    <section class="tab-pane" id="pane-addons" data-screen-label="05 Addons">
+      <div class="page-head">
+        <div class="page-head-left" id="ao-head"></div>
+      </div>
+
+      <div class="section-head" id="ao-h-addons"></div>
+      <div class="feature-grid" id="addons-grid"></div>
+
+      <div class="section-head" id="ao-h-voice"></div>
+      <div class="feature-grid" id="voice-grid"></div>
+
+      <div class="section-head" id="ao-h-fox"></div>
+      <div class="feature-grid" id="fox-grid"></div>
+
+      <div class="section-head" id="ao-h-stb"></div>
+      <p class="section-head-sub" id="ao-stb-note"></p>
+      <div class="stb-grid" id="stb-grid"></div>
+
+      <div class="section-head" id="ao-h-ult"></div>
+      <p class="section-head-sub" id="ao-ult-sub"></p>
+      <div class="feature-grid" id="ult-grid"></div>
+
+      <div class="section-head" id="ao-h-hw"></div>
+      <div class="feature-grid" id="hw-grid"></div>
+    </section>
+
+    <!-- PROMOS -->
+    <section class="tab-pane" id="pane-promos" data-screen-label="06 Promos">
+      <div class="page-head">
+        <div class="page-head-left" id="promos-head"></div>
+      </div>
+      <div id="promos-wrap"></div>
+    </section>
+
+    <!-- PROPOSAL -->
+    <section class="tab-pane" id="pane-proposal" data-screen-label="07 Proposal">
+      <div class="page-head">
+        <div class="page-head-left" id="prop-head"></div>
+      </div>
+      <div class="j-stepper" id="j-stepper"></div>
+      <div class="j-layout" style="margin-top:18px">
+        <div class="j-main" id="j-main"></div>
+        <aside class="j-side">
+          <div class="j-sumbox" id="j-sumbox-content"></div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- PRINT VIEW (only visible on print)                                    -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="print-view"></div>
+  <!-- Hidden logo for PDF generation (BW version) -->
+  <img id="proposal-logo" src="assets/liberty-logo-bw.png" style="display:none" alt="Liberty Business" crossorigin="anonymous">
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- AUTH GUARD — redirect to login if no valid session                     -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <script>
+    (function(){
+      var H='524046e112509a42c9b95545ca26e29276dfa9485100cdb0637f38453425beaf';
+      if(sessionStorage.getItem('lb_auth')!==H) window.location.replace('index.html');
+    })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- SCRIPTS                                                                -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- pdf-lib — js/solicitud-pdf.js renders the downloadable Solicitud with it.
+       Vendored, not CDN: cdnjs is blocked on some networks (Zscaler) and a silent
+       failure would break contract generation with no diagnostic. -->
+  <script src="js/pdf-lib.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/renderers.js"></script>
+  <script src="js/proposal.js"></script>
+  <script src="js/contract.js"></script>
+  <script src="js/solicitud-pdf.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
