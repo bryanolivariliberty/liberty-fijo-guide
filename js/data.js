@@ -156,3 +156,109 @@ const HARDWARE = [
   {id:'hw4',name:'Managed MSS',   sub:'Managed Security Service',       price:22.00},
   {id:'hw5',name:'IP Estático (HW)',sub:'Any HSD Plan',                  price:20.00}
 ];
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SOHO OFFERS — source: "SOHO Plan Configuration" workbook (Reference Data),
+// Oct 2026. Same MRR on 24- and 36-month terms; the discount code changes by term,
+// the billing code changes by technology (HFC = COAX · FTTx = fiber).
+// `quote` says how "Quote this plan" fills the Cart (speed row + price type), so
+// the Cart total always equals `mrr` — verified for every offer and technology.
+// ═══════════════════════════════════════════════════════════════════════════
+const SOHO_OFFERS = [
+  {id:'1p-600',      svc:'1P', bw:'600MB', fmc:'no',   video:null, mrr:276.99, bill:{HFC:'T26DX', FTTx:'K26DX'}, discAmt:null, disc:null,
+   quote:{speed:'600', bundle:'p1', price:'list'}},
+  {id:'1p-1g-fmc',   svc:'1P', bw:'1GB',   fmc:'yes',  video:null, mrr:160.99, bill:{HFC:'T21GF', FTTx:'K261F'}, discAmt:116,  disc:{24:'81162',36:'81163'},
+   quote:{speed:'600', bundle:'p1', price:'promo', tech:'FMC'}},
+  {id:'2p-500',      svc:'2P', bw:'500MB', fmc:'no',   video:null, mrr:67.99,  bill:{HFC:'T6U5C', FTTx:'K6U5C'}, discAmt:229,  disc:{24:'82292',36:'82293'},
+   quote:{speed:'500', bundle:'p2', price:'lto-lead'}},
+  {id:'2p-500-fmc',  svc:'2P', bw:'500MB', fmc:'yes',  video:null, mrr:60.99,  bill:{HFC:'T6U5C', FTTx:'K6U5C'}, discAmt:236,  disc:{24:'82362',36:'82363'},
+   quote:{speed:'500', bundle:'p2', price:'lto-fmc'}},
+  {id:'2p-600',      svc:'2P', bw:'600MB', fmc:'no',   video:null, mrr:286.99, bill:{HFC:'T6UDX', FTTx:'K6UDX'}, discAmt:null, disc:null,
+   quote:{speed:'600', bundle:'p2', price:'list'}},
+  {id:'2p-1g',       svc:'2P', bw:'1GB',   fmc:'no',   video:null, mrr:84.99,  bill:{HFC:'T61GB', FTTx:'K6UDC'}, discAmt:282,  disc:{24:'82822',36:'82823'},
+   quote:{speed:'1G', bundle:'p2', price:'lto-lead'}},
+  {id:'2p-1g-fmc',   svc:'2P', bw:'1GB',   fmc:'yes',  video:null, mrr:62.99,  bill:{HFC:'T61GB', FTTx:'K6UDC'}, discAmt:304,  disc:{24:'83042',36:'83043'},
+   quote:{speed:'1G', bundle:'p2', price:'lto-fmc'}},
+  {id:'3p-edp-500',  svc:'3P', bw:'500MB', fmc:'both', video:'Español De Primera', mrr:76.49, bill:{HFC:'T7EDH', FTTx:'K7EDI'}, discAmt:77, disc:{24:'80772',36:'80773'},
+   quote:{speed:'500', bundle:'p3e', price:'lto-lead'}},
+  {id:'3p-edp-1g',   svc:'3P', bw:'1GB',   fmc:'both', video:'Español De Primera', mrr:81.49, bill:{HFC:'T7E1G', FTTx:'K7E6I'}, discAmt:312, disc:{24:'83122',36:'83123'},
+   quote:{speed:'1G', bundle:'p3e', price:'lto-lead'}},
+  {id:'3p-edp-600',  svc:'3P', bw:'600MB', fmc:'no',   video:'Español De Primera', mrr:313.49, bill:{HFC:'T7EDI, T7EDX', FTTx:'K7EI5'}, discAmt:null, disc:null,
+   quote:{speed:'600', bundle:'p3e', price:'list'}},
+  {id:'3p-ult-600',  svc:'3P', bw:'600MB', fmc:'no',   video:'Ultimate', mrr:361.49, bill:{HFC:'T7UDX, T7UDI', FTTx:'K7UI5'}, discAmt:null, disc:null,
+   quote:{speed:'600', bundle:'p3u', price:'list'}}
+];
+
+// ═══════════════════════════════════════════════════════════════════════════
+// LIBERTY BUSINESS IN A BOX — SAFETY CONNECTION (Oct 2026)
+// Bundle = Primary WAN (2P) + FortiWiFi/FortiGate + FortiExtender 101F (5G
+// backup) + WAN & MSS + SIM Card + Static IP. What changes per plan is the speed.
+// ═══════════════════════════════════════════════════════════════════════════
+const BIAB_SAFETY = [
+  {speed:'100M',  wan:52.99, hw:'Forti WiFi 30G + FEX-101F', hwPrice:40.00, wanMss:67.00, sim:20.00, ip:20.00, total:199.99},
+  {speed:'300M',  wan:57.99, hw:'Forti WiFi 30G + FEX-101F', hwPrice:40.00, wanMss:70.00, sim:20.00, ip:20.00, total:207.99},
+  {speed:'500M',  wan:60.99, hw:'Forti WiFi 30G + FEX-101F', hwPrice:40.00, wanMss:70.00, sim:20.00, ip:20.00, total:210.99},
+  {speed:'1000M', wan:62.99, hw:'Forti WiFi 50G + FEX-101F', hwPrice:50.00, wanMss:70.00, sim:20.00, ip:20.00, total:222.99}
+];
+
+// ═══════════════════════════════════════════════════════════════════════════
+// VS CLARO — SOHO fixed packages by speed tier (Competitive Landscape, Oct 2026).
+// null = not offered at that tier. Liberty prices come from SOHO_OFFERS.
+// ═══════════════════════════════════════════════════════════════════════════
+const VS_CLARO = [
+  {svc:'2P', en:'2P Internet + Phone · 500–600 MB',            es:'2P Internet + Telefonía · 500–600 MB',            lib:67.99, libNote:'500 MB', claro:50.00, claroNote:'600 MB'},
+  {svc:'2P', en:'2P Internet + Phone · 1000 MB',               es:'2P Internet + Telefonía · 1000 MB',               lib:84.99, libNote:'',       claro:55.00, claroNote:''},
+  {svc:'3P', en:'3P Internet + Video (EDP) + Phone · 300 MB',   es:'3P Internet + Video (EDP) + Telefonía · 300 MB',   lib:null,  libNote:'',       claro:67.99, claroNote:''},
+  {svc:'3P', en:'3P Internet + Video (EDP) + Phone · 500–600 MB',es:'3P Internet + Video (EDP) + Telefonía · 500–600 MB',lib:76.49, libNote:'500 MB', claro:77.99, claroNote:'600 MB'},
+  {svc:'3P', en:'3P Internet + Video (EDP) + Phone · 1000 MB',  es:'3P Internet + Video (EDP) + Telefonía · 1000 MB',  lib:81.49, libNote:'',       claro:82.99, claroNote:''},
+  {svc:'1P', en:'1P Internet · 100 MB',                         es:'1P Internet · 100 MB',                             lib:null,  libNote:'',       claro:null,  claroNote:''},
+  {svc:'1P', en:'1P Internet · 1000 MB',                        es:'1P Internet · 1000 MB',                            lib:null,  libNote:'',       claro:null,  claroNote:''}
+];
+
+// Safety Connection components as Cart lines. They live in HARDWARE so the Cart,
+// proposal PDF and SOHO contract list them like any other line; `biab:true` keeps
+// them out of the Extras / Add-ons pickers (they only come in with the bundle).
+HARDWARE.push(
+  {id:'bx-f30', name:'Forti WiFi 30G + FEX-101F', sub:'Liberty Business in a Box · Safety Connection', price:40.00, biab:true},
+  {id:'bx-f50', name:'Forti WiFi 50G + FEX-101F', sub:'Liberty Business in a Box · Safety Connection', price:50.00, biab:true},
+  {id:'bx-wan', name:'WAN & MSS',                 sub:'Liberty Business in a Box · Safety Connection', price:70.00, biab:true},
+  {id:'bx-sim', name:'SIM Card (5G backup)',      sub:'Liberty Business in a Box · Safety Connection', price:20.00, biab:true},
+  {id:'bx-ip',  name:'Static IP',                 sub:'Liberty Business in a Box · Safety Connection', price:20.00, biab:true}
+);
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ADD-ON / HARDWARE NAMES IN BOTH LANGUAGES (UAT)
+// `name` and `sub` now follow the ES/EN toggle everywhere they're shown (Extras,
+// Add-ons tab, Cart summary, proposal PDF). The SOHO contract is a Spanish form,
+// so it reads the Spanish name through lbEs().  [en, es]
+// ═══════════════════════════════════════════════════════════════════════════
+const LB_I18N = {
+  ao1:{sub:['Any HSD Plan','Cualquier plan HSD']},
+  ao2:{sub:['Any VoIP Plan','Cualquier plan VoIP']},
+  ao3:{name:['Static IP (Add-on)','IP Estático (Add-on)'], sub:['Any HSD Plan','Cualquier plan HSD']},
+  ao4:{sub:['Any Bundle','Cualquier bundle']},
+  ao5:{name:['Cloud Storage','Nube (Almacenamiento)'], sub:['Any Bundle','Cualquier bundle']},
+  ao6:{name:['Online Store','Tienda Online'], sub:['Any Bundle','Cualquier bundle']},
+  ao7:{name:['Voicemail','Buzón de voz'], sub:['Any VoIP Plan','Cualquier plan VoIP']},
+  hw1:{name:['FortiWiFi 30G','Forti Wifi30G'], sub:['WiFi Security','Seguridad WiFi']},
+  hw2:{sub:['Network Extension','Extensión de red']},
+  hw3:{sub:['Managed WAN Service','Servicio WAN administrado']},
+  hw4:{sub:['Managed Security Service','Servicio de seguridad administrada']},
+  hw5:{name:['Static IP (HW)','IP Estático (HW)'], sub:['Any HSD Plan','Cualquier plan HSD']},
+  'bx-sim':{name:['SIM Card (5G backup)','SIM Card (respaldo 5G)']},
+  'bx-ip': {name:['Static IP','IP Estático']}
+};
+function lbLocalize(list){
+  list.forEach(x=>{
+    const m = LB_I18N[x.id]; if(!m) return;
+    x._i18n = m;
+    Object.keys(m).forEach(k=>{
+      const pair = m[k];
+      Object.defineProperty(x, k, {enumerable:true, configurable:true,
+        get(){ return (typeof lang!=='undefined' && lang==='es') ? pair[1] : pair[0]; }});
+    });
+  });
+}
+// Spanish name regardless of the toggle (SOHO contract)
+function lbEs(x, k){ return (x && x._i18n && x._i18n[k]) ? x._i18n[k][1] : (x ? x[k] : ''); }
+lbLocalize(ADDONS); lbLocalize(HARDWARE);
