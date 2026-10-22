@@ -151,7 +151,7 @@ const ULT_ADDONS = [
 
 const HARDWARE = [
   {id:'hw1',name:'Forti Wifi30G', sub:'Seguridad WiFi / WiFi Security', price:28.25},
-  {id:'hw2',name:'FEX-101F',      sub:'Switch / Network Extension',     price:11.75},
+  {id:'hw2',name:'FEX-101G',      sub:'Switch / Network Extension',     price:11.75},
   {id:'hw3',name:'Managed WAN',   sub:'Managed WAN Service',            price:45.00},
   {id:'hw4',name:'Managed MSS',   sub:'Managed Security Service',       price:22.00},
   {id:'hw5',name:'IP Estático (HW)',sub:'Any HSD Plan',                  price:20.00}
@@ -191,14 +191,13 @@ const SOHO_OFFERS = [
 
 // ═══════════════════════════════════════════════════════════════════════════
 // LIBERTY BUSINESS IN A BOX — SAFETY CONNECTION (Oct 2026)
-// Bundle = Primary WAN (2P) + FortiWiFi/FortiGate + FortiExtender 101F (5G
-// backup) + WAN & MSS + SIM Card + Static IP. What changes per plan is the speed.
+// Bundle = Primary WAN (2P) + FortiWiFi/FortiGate + FortiExtender 101G (LTE
+// backup, supports up to 300 Mbps) + WAN & MSS + SIM Card + Static IP. What changes per plan is the speed.
 // ═══════════════════════════════════════════════════════════════════════════
 const BIAB_SAFETY = [
-  {speed:'100M',  wan:52.99, hw:'Forti WiFi 30G + FEX-101F', hwPrice:40.00, wanMss:67.00, sim:20.00, ip:20.00, total:199.99},
-  {speed:'300M',  wan:57.99, hw:'Forti WiFi 30G + FEX-101F', hwPrice:40.00, wanMss:70.00, sim:20.00, ip:20.00, total:207.99},
-  {speed:'500M',  wan:60.99, hw:'Forti WiFi 30G + FEX-101F', hwPrice:40.00, wanMss:70.00, sim:20.00, ip:20.00, total:210.99},
-  {speed:'1000M', wan:62.99, hw:'Forti WiFi 50G + FEX-101F', hwPrice:50.00, wanMss:70.00, sim:20.00, ip:20.00, total:222.99}
+  {speed:'300M',  wan:57.99, hw:'Forti WiFi 30G + FEX-101G', hwPrice:40.00, wanMss:70.00, sim:20.00, ip:20.00, total:207.99},
+  {speed:'500M',  wan:60.99, hw:'Forti WiFi 30G + FEX-101G', hwPrice:40.00, wanMss:70.00, sim:20.00, ip:20.00, total:210.99},
+  {speed:'1000M', wan:62.99, hw:'Forti WiFi 50G + FEX-101G', hwPrice:50.00, wanMss:70.00, sim:20.00, ip:20.00, total:222.99}
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -219,10 +218,10 @@ const VS_CLARO = [
 // proposal PDF and SOHO contract list them like any other line; `biab:true` keeps
 // them out of the Extras / Add-ons pickers (they only come in with the bundle).
 HARDWARE.push(
-  {id:'bx-f30', name:'Forti WiFi 30G + FEX-101F', sub:'Liberty Business in a Box · Safety Connection', price:40.00, biab:true},
-  {id:'bx-f50', name:'Forti WiFi 50G + FEX-101F', sub:'Liberty Business in a Box · Safety Connection', price:50.00, biab:true},
+  {id:'bx-f30', name:'Forti WiFi 30G + FEX-101G', sub:'Liberty Business in a Box · Safety Connection', price:40.00, biab:true},
+  {id:'bx-f50', name:'Forti WiFi 50G + FEX-101G', sub:'Liberty Business in a Box · Safety Connection', price:50.00, biab:true},
   {id:'bx-wan', name:'WAN & MSS',                 sub:'Liberty Business in a Box · Safety Connection', price:70.00, biab:true},
-  {id:'bx-sim', name:'SIM Card (5G backup)',      sub:'Liberty Business in a Box · Safety Connection', price:20.00, biab:true},
+  {id:'bx-sim', name:'SIM Card (LTE backup)',      sub:'Liberty Business in a Box · Safety Connection', price:20.00, biab:true},
   {id:'bx-ip',  name:'Static IP',                 sub:'Liberty Business in a Box · Safety Connection', price:20.00, biab:true}
 );
 
@@ -245,7 +244,7 @@ const LB_I18N = {
   hw3:{sub:['Managed WAN Service','Servicio WAN administrado']},
   hw4:{sub:['Managed Security Service','Servicio de seguridad administrada']},
   hw5:{name:['Static IP (HW)','IP Estático (HW)'], sub:['Any HSD Plan','Cualquier plan HSD']},
-  'bx-sim':{name:['SIM Card (5G backup)','SIM Card (respaldo 5G)']},
+  'bx-sim':{name:['SIM Card (LTE backup)','SIM Card (respaldo LTE)']},
   'bx-ip': {name:['Static IP','IP Estático']}
 };
 function lbLocalize(list){
