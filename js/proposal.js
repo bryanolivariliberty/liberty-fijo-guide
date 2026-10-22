@@ -557,7 +557,7 @@ function propStepExtras(){
     <div class="jao-grp">
       <div class="jao-gtl">${icon('hardware')} ${t('prop.extras.hw')}</div>
       <div class="jao-grid">
-        ${HARDWARE.map(h=>{
+        ${HARDWARE.filter(h=>!h.biab).map(h=>{
           const on = state.prop.hw[h.id] != null;
           return `
             <label class="jao-item ${on?'on':''}">
@@ -813,12 +813,15 @@ function propGetItems(){
     const voiceLineStr = hasVoiceBundle && p.voice.included
       ? ` · ${p.voice.included} ${lang==='es' ? (p.voice.included===1?'línea VoIP':'líneas VoIP') : (p.voice.included===1?'VoIP line':'VoIP lines')} incl.`
       : '';
-    const planName = p.speed._vid2p
+    const planName = p.speed._biab
+      ? `Liberty Business in a Box · Safety Connection ${p.speed.label}`
+      : p.speed._vid2p
       ? `${bundleNames[p.bundle]} — ${p.speed.tech} ${p.speed.speed}`
       : `${bundleNames[p.bundle]||p.bundle} ${p.speed.displaySpeed||p.speed.speed}`;
     items.push({
       name: planName,
-      desc: `${p.speed.tech} · ${ptName}${voiceLineStr}`,
+      // UAT: Safety Connection — the 2P line; its components follow as separate lines
+      desc: p.speed._biab ? `${p.speed.tech} · ${lang==='es'?'2P Internet + Voz':'2P Internet + Voice'}${voiceLineStr}` : `${p.speed.tech} · ${ptName}${voiceLineStr}`,
       price: price || 0
     });
   }
@@ -897,7 +900,7 @@ function propRenderSidebar(){
       : '';
     planHtml = `
       <div class="j-sumbox-plan">
-        <div class="j-sumbox-pname">${bundleNames[p.bundle]} · ${p.speed.displaySpeed||p.speed.speed} · ${p.speed.tech}</div>
+        <div class="j-sumbox-pname">${p.speed._biab ? 'LBiaB Safety Connection · 2P' : bundleNames[p.bundle]} · ${p.speed.displaySpeed||p.speed.speed} · ${p.speed.tech}</div>
         ${voiceLineTag}
         <div class="j-sumbox-pprice">${fmt(price)}<small>/${lang==='es'?'mes':'mo'}</small></div>
       </div>
@@ -1089,7 +1092,7 @@ function propRenderDonePanel(stepIdx){
   if (key==='speed')  val = (p.speed?.displaySpeed || p.speed?.speed) + ' · ' + p.speed?.tech;
   if (key==='bundle') {
     const names = {p1:'1P Data',p2:'2P HSD+VoIP',p3b:'3P Broadcast',p3e:'3P Español/EDP',p3u:'3P Ultimate',p2e:'2P Español De Primera',p2u:'2P Ultimate',p1v:'Voz 1P Standalone'};
-    val = names[p.bundle] || '';
+    val = (p.speed && p.speed._biab) ? 'LBiaB Safety Connection · 2P' : (names[p.bundle] || '');
     const hasVoiceB = p.bundle==='p2' || p.bundle.startsWith('p3');
     if (hasVoiceB && p.voice.included) {
       val += ` · ${p.voice.included} ${lang==='es' ? (p.voice.included===1?'línea VoIP':'líneas VoIP') : (p.voice.included===1?'VoIP line':'VoIP lines')}`;
@@ -1262,7 +1265,7 @@ function downloadProposalPDF(){
     // one shared name so the PDF badge can't disagree with the stepper
     const planPrice = propBundlePrice(p.speed, p.priceType, p.bundle);
     const displaySpd = p.speed.displaySpeed || p.speed.speed;
-    const bundleName = bundleNames[p.bundle] || p.bundle;
+    const bundleName = p.speed._biab ? 'LBiaB Safety Connection 2P' : (bundleNames[p.bundle] || p.bundle);
     const ptLabel = propPriceTypeShort(p.priceType, isEs);
     const tKey = p.speed.tech || '';
     const techColorMap = {COAX:[0,101,189],'D3.1':[0,101,189],FTTx:[22,163,74],FTTx15:[22,163,74],FMC:[109,40,217]};
