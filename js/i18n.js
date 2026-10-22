@@ -3,7 +3,7 @@
 // ═══════════════════════════════════════════════════════════════════════════
 const T = {
  es:{
-  'tab.guide':'Cómo Usar','tab.planes':'Planes','tab.lto':'Oferta Limitada',
+  'tab.guide':'Cómo Usar','tab.flow':'Flujo de Venta','tab.planes':'Nuestros Planes','tab.vsclaro':'vs Claro','tab.lto':'Oferta Limitada',
   'tab.especiales':'Especiales','tab.addons':'Add-ons','tab.promos':'Promociones','tab.proposal':'Cotización',
   'ctrl.tech':'Tecnología','ctrl.price':'Precio','btn.list':'Lista','btn.promo':'Promo',
   'b1p-data':'1P Data (HSD)','b1p-voice':'1P Voz','b2p':'2P HSD + VoIP',
@@ -53,8 +53,8 @@ const T = {
   'promo.r2':'El cliente referido debe permanecer activo por un mínimo de <strong>90 días</strong>',
  },
  en:{
-  'tab.guide':'How to Use','tab.planes':'Plans','tab.lto':'Limited Time Offer',
-  'tab.especiales':'Specials','tab.addons':'Add-ons','tab.promos':'Promotions','tab.proposal':'Proposal',
+  'tab.guide':'How to Use','tab.flow':'Sales Flow','tab.planes':'Our Plans','tab.vsclaro':'vs Claro','tab.lto':'Limited Time Offer',
+  'tab.especiales':'Specials','tab.addons':'Add-ons','tab.promos':'Promotions','tab.proposal':'Cart',
   'ctrl.tech':'Technology','ctrl.price':'Price','btn.list':'List','btn.promo':'Promo',
   'b1p-data':'1P Data (HSD)','b1p-voice':'1P Voice','b2p':'2P HSD + VoIP',
   'b3p-broadcast':'3P Broadcast','b3p-esp':'3P Español / EDP','b3p-ult':'3P Ultimate',
