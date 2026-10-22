@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>B2B Fijo Sales Tool</title>
+  <title>B2B Fixed Sales Tool</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Sales Flow / How to Use typography (ported from the Business Mix tool) -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/salesflow.css" />
+  <!-- Mobile Sales Tool branding (Poppins + Barlow Semi Condensed, dark header, card tabs) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/brand-mobile.css" />
+  <link rel="stylesheet" href="css/howto.css" />
+  <link rel="stylesheet" href="css/plans-vs.css" />
+  <link rel="stylesheet" href="css/quick-tips.css" />
+  <link rel="stylesheet" href="css/atlas.css" />
+  <link rel="stylesheet" href="css/uat-oct21.css" />
 </head>
 <body>
 
@@ -19,12 +30,18 @@
       <img src="assets/liberty-logo.png" alt="Liberty Business" class="brand-logo" />
       <div class="brand-divider"></div>
       <div class="brand-meta">
-        <span class="brand-meta-eyebrow" id="header-meta-eyebrow">Liberty Business</span>
-        <span class="brand-meta-title" id="header-meta-title">B2B Fijo Sales Tool</span>
+        <span class="brand-meta-title" id="header-meta-title">B2B Fixed Sales Tool</span>
+        <span class="brand-meta-sub" id="header-meta-sub">Solo para uso interno</span>
       </div>
     </div>
 
     <div class="header-spacer"></div>
+
+    <a class="header-switch" id="header-switch" aria-label="Mobile Sales Tool" href="https://liberty-business-sales-guide.vercel.app/" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+      <span>Mobile Sales Tool</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
 
     <span class="header-pill" id="header-pill"></span>
 
@@ -48,13 +65,13 @@
 
     <!-- GUIDE -->
     <section class="tab-pane" id="pane-guide" data-screen-label="01 Guide">
-      <div class="guide-hero" id="guide-hero"></div>
+      <!-- How to Use: same structure as the Mobile Sales Tool (js/app.js renderGuide) -->
+      <div id="howto-root"></div>
+    </section>
 
-      <div class="how-grid" id="how-grid"></div>
-
-      <div class="section-head" id="rules-section-head"></div>
-
-      <div id="rules-wrap"></div>
+    <!-- SALES FLOW (Deal Room, ported from the Business Mix tool) -->
+    <section class="tab-pane" id="pane-flow" data-screen-label="01b Sales Flow">
+      <div class="sf" id="sf-flow"></div>
     </section>
 
     <!-- PLANES -->
@@ -68,29 +85,8 @@
       <div class="plan-grid" id="plan-grid"></div>
     </section>
 
-    <!-- LTO -->
-    <section class="tab-pane" id="pane-lto" data-screen-label="03 LTO">
-      <div class="page-head">
-        <div class="page-head-left" id="lto-head"></div>
-      </div>
-      <div class="controls-row" id="lto-controls"></div>
-      <div id="lto-callout"></div>
-      <div class="tbl-card">
-        <div class="tbl-scroll">
-          <table class="lto-tbl" id="lto-table"></table>
-        </div>
-      </div>
-      <div class="legend" id="lto-legend"></div>
-    </section>
-
-    <!-- ESPECIALES -->
-    <section class="tab-pane" id="pane-especiales" data-screen-label="04 Specials">
-      <div class="page-head">
-        <div class="page-head-left" id="spec-head"></div>
-      </div>
-      <div class="controls-row" id="spec-controls"></div>
-      <div class="special-grid" id="spec-grid"></div>
-    </section>
+    <!-- VS CLARO (UAT, js/vs-claro.js) -->
+    <section class="tab-pane" id="pane-vsclaro" data-screen-label="02b vs Claro"></section>
 
     <!-- ADD-ONS -->
     <section class="tab-pane" id="pane-addons" data-screen-label="05 Addons">
@@ -132,6 +128,8 @@
       <div class="page-head">
         <div class="page-head-left" id="prop-head"></div>
       </div>
+      <!-- Link back to the Sales Flow (js/salesflow.js) -->
+      <div class="sf" id="sf-propbar"></div>
       <div class="j-stepper" id="j-stepper"></div>
       <div class="j-layout" style="margin-top:18px">
         <div class="j-main" id="j-main"></div>
@@ -142,6 +140,12 @@
     </section>
 
   </main>
+
+  <!-- Footer — same as the B2B Sales Hub (text set in app.js buildShell) -->
+  <footer class="lb-footer">
+    <div><b>Liberty Communications of Puerto Rico</b> © 2026 · <span id="lbf-ip">Propiedad Intelectual y Confidencial</span> · <span id="lbf-nd">No para distribución a clientes</span></div>
+    <div>Built by Liberty Business - B2B Customer Experience Team</div>
+  </footer>
 
   <!-- ═══════════════════════════════════════════════════════════════════ -->
   <!-- PRINT VIEW (only visible on print)                                    -->
@@ -154,6 +158,33 @@
   <!-- AUTH GUARD — redirect to login if no valid session                     -->
   <!-- ═══════════════════════════════════════════════════════════════════ -->
   <script>
+// ── Seamless sign-in between the B2B tools and the B2B Sales Hub (UAT) ──
+// The other tool (or the hub) opens this page with #lbsso=<token>: the session
+// sign-in plus the rep's details and language. Valid 10 minutes; removed from
+// the address bar right away. Same password hash as the login page.
+(function(){
+  var H='524046e112509a42c9b95545ca26e29276dfa9485100cdb0637f38453425beaf';
+  try{
+    var m = location.hash.match(/[#&]lbsso=([^&]+)/);
+    if(m){
+      var d = JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(m[1])))));
+      if(d && d.a===H && (Date.now()-(+d.t||0)) < 600000){
+        sessionStorage.setItem('lb_auth', H);
+        if(d.rep && d.rep.name) sessionStorage.setItem('lb_onboard', JSON.stringify(d.rep));
+        if(d.lang==='en'||d.lang==='es') sessionStorage.setItem('lb_sso_lang', d.lang);
+      }
+      history.replaceState(null,'',location.pathname+location.search);
+    }
+  }catch(e){}
+  window.lbSsoUrl = function(base, curLang){
+    try{
+      if(sessionStorage.getItem('lb_auth')!==H) return base;
+      var rep=null; try{ rep=JSON.parse(sessionStorage.getItem('lb_onboard')||'null'); }catch(e){}
+      var d={a:H, t:Date.now(), rep:rep, lang:curLang||''};
+      return String(base).split('#')[0]+'#lbsso='+encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(d)))));
+    }catch(e){ return base; }
+  };
+})();
     (function(){
       var H='524046e112509a42c9b95545ca26e29276dfa9485100cdb0637f38453425beaf';
       if(sessionStorage.getItem('lb_auth')!==H) window.location.replace('index.html');
@@ -175,6 +206,12 @@
   <script src="js/proposal.js"></script>
   <script src="js/contract.js"></script>
   <script src="js/solicitud-pdf.js"></script>
+  <script src="js/salesflow.js"></script>
+  <script src="js/plans-soho.js"></script>
+  <script src="js/vs-claro.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/quick-tips.js"></script>
+  <script src="js/atlas.js"></script>
+  <script src="js/uat-oct21.js"></script>
 </body>
 </html>
