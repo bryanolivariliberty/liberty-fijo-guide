@@ -1,0 +1,41 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   UAT Oct 21 2026 — rep welcome form, Home button, compare table layout
+   ═══════════════════════════════════════════════════════════════════════════ */
+/* Rep welcome form (same as the Mobile Sales Tool) */
+#onboardOverlay{position:fixed;inset:0;z-index:10050;background:rgba(10,26,46,.97);display:flex;align-items:center;justify-content:center;padding:1rem}
+.ob-card{background:#fff;border-radius:16px;padding:2rem 2.25rem;max-width:480px;width:100%;box-shadow:0 24px 80px rgba(0,0,0,.4);font-family:'Barlow Semi Condensed',sans-serif;color:#0a1a2e}
+.ob-lang{display:flex;justify-content:flex-end;margin-bottom:10px}
+.ob-lang div{display:inline-flex;background:#eef3fa;border-radius:999px;padding:3px}
+.ob-lang button{border:0;background:transparent;border-radius:999px;padding:4px 12px;font:800 12px 'Barlow Semi Condensed',sans-serif;color:#5a6a80;cursor:pointer}
+.ob-lang button.on{background:#0071CE;color:#fff}
+.ob-head{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.ob-head img{height:44px;width:auto}
+.ob-head h2{font:800 22px/1.1 'Poppins',sans-serif;text-transform:uppercase;margin:0}
+.ob-head p{font-size:13px;color:#5a6a80;margin:4px 0 0}
+.ob-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.ob-grid .full{grid-column:1/-1}
+.ob-f label{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5a6a80;margin-bottom:5px}
+.ob-f label i{color:#FF5300;font-style:normal}
+.ob-f input{width:100%;box-sizing:border-box;border:1.5px solid #dbe5f1;border-radius:10px;padding:9px 12px;font:500 15px 'Barlow Semi Condensed',sans-serif;color:#0a1a2e;background:#f5f8fc}
+.ob-f input:focus{outline:0;border-color:#0071CE;background:#fff;box-shadow:0 0 0 3px rgba(0,113,206,.15)}
+.ob-type{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ob-type button{border:1.5px solid #dbe5f1;background:#fff;border-radius:10px;padding:10px;font:700 14px 'Barlow Semi Condensed',sans-serif;color:#0a1a2e;cursor:pointer}
+.ob-type button.on{background:#0071CE;border-color:#0071CE;color:#fff}
+.ob-err{display:none;margin-top:10px;font-size:13px;color:#b42318}
+.ob-go{margin-top:18px;width:100%;border:0;border-radius:12px;padding:14px;background:#0071CE;color:#fff;font:800 17px 'Poppins',sans-serif;letter-spacing:.02em;text-transform:uppercase;cursor:pointer}
+.ob-go:disabled{background:#a9c7ea;cursor:not-allowed}
+@media(max-width:520px){.ob-card{padding:1.4rem 1.2rem}.ob-grid{grid-template-columns:1fr}}
+/* Home button in the header */
+.header-home{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;font:800 12.5px 'Barlow Semi Condensed',sans-serif;text-decoration:none;white-space:nowrap}
+.header-home:hover{background:rgba(255,255,255,.2)}
+@media(max-width:700px){.header-home span{display:none}.header-home{padding:7px 9px}}
+/* Compare table that fits the column */
+.sav-wrap{border:1px solid var(--line,#dbe5f1);border-radius:10px;overflow:hidden}
+.sav-tbl{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px}
+.sav-tbl th{font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#5a6a80;background:#f5f8fc;padding:8px 6px;text-align:right;white-space:normal;line-height:1.2}
+.sav-tbl th:first-child{text-align:left;width:24%}
+.sav-tbl th:nth-child(4){width:22%}
+.sav-tbl td{padding:6px;border-top:1px solid #eef2f8;vertical-align:middle}
+.sav-tbl td.sv-k{font-weight:700;line-height:1.2}
+.sav-tbl td.sv-d{text-align:right;font-weight:700;white-space:nowrap}
+.sav-tbl input.sf-money{width:100%;min-width:0;box-sizing:border-box;padding:6px 7px;text-align:right;font-size:13px}
