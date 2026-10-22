@@ -15,7 +15,7 @@ const SOHO_PRODUCTS = [
   {id:'1P',   icon:'internet', en:'1P Internet',                es:'1P Internet',                subEn:'Internet only',               subEs:'Solo internet'},
   {id:'2P',   icon:'phone',    en:'2P Internet + Voice',        es:'2P Internet + Voz',          subEn:'Internet and phone line',     subEs:'Internet y línea de teléfono'},
   {id:'3P',   icon:'tv',       en:'3P Internet + Voice + Video',es:'3P Internet + Voz + Video',  subEn:'Adds Español De Primera or Ultimate', subEs:'Añade Español De Primera o Ultimate'},
-  {id:'BIAB', icon:'shield',   en:'Liberty Business in a Box',  es:'Liberty Business in a Box',  subEn:'Safety Connection · 5G backup',subEs:'Safety Connection · respaldo 5G'}
+  {id:'BIAB', icon:'shield',   en:'Liberty Business in a Box',  es:'Liberty Business in a Box',  subEn:'Safety Connection · LTE backup',subEs:'Safety Connection · respaldo LTE'}
 ];
 const BW_ORDER = {'500MB':1,'600MB':2,'1GB':3};
 
@@ -181,9 +181,9 @@ function renderBiabCards(){
   const row = (l, v) => `<div class="biab-row"><span>${l}</span><b>${v}</b></div>`;
   return `<div class="biab-intro">
       <div><b>🔒 Liberty Business in a Box · Safety Connection</b>
-      <p>${es?'Internet + voz con respaldo 5G y seguridad administrada, en un solo paquete. Lo que cambia entre planes es la velocidad; los add-ons incluidos vienen con cada plan.'
-             :'Internet + voice with 5G backup and managed security, in one bundle. What changes between plans is the speed; the included add-ons come with every plan.'}</p></div>
-      <span class="biab-badge">${es?'Respaldo 5G incluido':'5G backup included'}</span>
+      <p>${es?'Internet + voz con respaldo LTE y seguridad administrada, en un solo paquete. Lo que cambia entre planes es la velocidad; los add-ons incluidos vienen con cada plan.'
+             :'Internet + voice with LTE backup and managed security, in one bundle. What changes between plans is the speed; the included add-ons come with every plan.'}</p></div>
+      <span class="biab-badge">${es?'Respaldo LTE incluido':'LTE backup included'}</span>
     </div>
     <div class="sp-grid">${BIAB_SAFETY.map((b,i)=>`
       <article class="soho-card biab-card2">
@@ -195,7 +195,7 @@ function renderBiabCards(){
           <div class="biab-addons-h">${es?'Add-ons incluidos':'Included add-ons'}</div>
           ${row(b.hw, fmt(b.hwPrice))}
           ${row('WAN & MSS', fmt(b.wanMss))}
-          ${row(es?'SIM Card (respaldo 5G)':'SIM Card (5G backup)', fmt(b.sim))}
+          ${row(es?'SIM Card (respaldo LTE)':'SIM Card (LTE backup)', fmt(b.sim))}
           ${row(es?'IP estático':'Static IP', fmt(b.ip))}
         </div>
         <div class="soho-actions">
@@ -205,9 +205,9 @@ function renderBiabCards(){
     <div class="biab-what">
       <b>${es?'Qué incluye cada add-on':'What each add-on is'}</b>
       <ul>
-        <li><b>FortiWiFi / FortiGate 30G ${es?'o':'or'} 50G + FortiExtender 101F (FEX-101F)</b> — ${es?'firewall con WiFi y el equipo de respaldo 5G que mantiene el negocio conectado si falla la conexión principal. El plan de 1000 MB usa el 50G.':'firewall with WiFi, and the 5G backup unit that keeps the business online if the main connection fails. The 1000 MB plan uses the 50G.'}</li>
+        <li><b>FortiWiFi / FortiGate 30G ${es?'o':'or'} 50G + FortiExtender 101G (FEX-101G)</b> — ${es?'firewall con WiFi y el equipo de respaldo LTE que mantiene el negocio conectado si falla la conexión principal; el respaldo soporta hasta 300 Mbps. El plan de 1000 MB usa el 50G.':'firewall with WiFi, and the LTE backup unit that keeps the business online if the main connection fails; the backup supports up to 300 Mbps. The 1000 MB plan uses the 50G.'}</li>
         <li><b>WAN & MSS</b> — ${es?'WAN administrado y servicio de seguridad administrada (Managed Security Service).':'managed WAN and Managed Security Service.'}</li>
-        <li><b>SIM Card</b> — ${es?'la línea de datos 5G que usa el FortiExtender para el respaldo.':'the 5G data line the FortiExtender uses for the backup.'}</li>
+        <li><b>SIM Card</b> — ${es?'la línea de datos LTE que usa el FortiExtender para el respaldo.':'the LTE data line the FortiExtender uses for the backup.'}</li>
         <li><b>${es?'IP estático':'Static IP'}</b> — ${es?'dirección IP fija para cámaras, acceso remoto o servidores.':'a fixed IP address for cameras, remote access or servers.'}</li>
       </ul>
       <p>${es?'"Cotizar este plan" pone en la Cotización el 2P y cada add-on como su propia línea, así el total coincide con el precio del paquete.':'"Quote this plan" puts the 2P and each add-on in the Cart as their own lines, so the total matches the bundle price.'}</p>
