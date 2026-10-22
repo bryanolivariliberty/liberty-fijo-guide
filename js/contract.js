@@ -143,11 +143,11 @@ function contractBuildData(){
   const svcAll = [];
   Object.entries(p.addons || {}).forEach(([id, price]) => {
     const a = ADDONS.find(v => v.id === id);
-    if (a) svcAll.push({ name: a.name, price });
+    if (a) svcAll.push({ name: (typeof lbEs==='function' ? lbEs(a,'name') : a.name), price });
   });
   Object.entries(p.hw || {}).forEach(([id, price]) => {
     const h = HARDWARE.find(v => v.id === id);
-    if (h) svcAll.push({ name: h.name, price });
+    if (h) svcAll.push({ name: (typeof lbEs==='function' ? lbEs(h,'name') : h.name), price });
   });
   const svcRows = svcAll.slice(0, 4);
   const svcOver = svcAll.slice(4);
@@ -178,7 +178,7 @@ function contractBuildData(){
   const noteBits = [];
   if (p.speed && b){
     const sp = p.speed.displaySpeed || p.speed.speed;
-    noteBits.push(`Plan: ${bundleNames[b] || b} · ${sp} · ${p.speed.tech}` +
+    noteBits.push(`Plan: ${p.speed._biab ? 'Liberty Business in a Box · Safety Connection 2P' : (bundleNames[b] || b)} · ${sp} · ${p.speed.tech}` +
                   (p.priceType ? ` · ${ptNames[p.priceType] || p.priceType}` : '') + '.');
   }
   if (svcOver.length){
