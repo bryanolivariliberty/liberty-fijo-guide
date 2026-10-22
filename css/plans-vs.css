@@ -1,0 +1,144 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   OUR PLANS (SOHO offers + Safety Connection) and VS CLARO — UAT
+   Uses the Mobile-tool palette already set in css/brand-mobile.css.
+   ═══════════════════════════════════════════════════════════════════════════ */
+#plan-grid{display:block}
+.soho-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.soho-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--line);border-radius:18px;
+  padding:18px;box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s}
+.soho-card::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:var(--blue)}
+.soho-card.is-fmc::before{background:linear-gradient(90deg,#6c3bd9,#9a6bff)}
+.soho-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:#b8d3f2}
+.soho-top{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px}
+.soho-svc{font:800 12px 'Poppins',sans-serif;background:#eef6ff;color:var(--blue);border-radius:8px;padding:3px 9px}
+.soho-tag{font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px}
+.soho-tag.fmc{background:#f3eeff;color:#6c3bd9}
+.soho-tag.vid{background:#fff1eb;color:#b33a00}
+.soho-speed{font:800 34px/1 'Poppins',sans-serif;color:var(--ink);letter-spacing:-.02em}
+.soho-name{font-size:14px;color:var(--muted);margin:6px 0 12px}
+.soho-price b{font:800 28px 'Poppins',sans-serif;color:var(--blue)}
+.soho-price small{font-size:13px;color:var(--muted);margin-left:2px}
+.soho-sub{font-size:13px;color:var(--muted);margin:2px 0 14px}
+.soho-save{color:#187a4e;font-weight:700}
+.soho-codes{display:grid;gap:6px;background:#f7f9fd;border:1px solid var(--line-2);border-radius:12px;padding:10px 12px;margin-bottom:14px}
+.soho-codes div{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:12px;color:var(--muted)}
+.soho-codes code{font:700 13px 'IBM Plex Mono',ui-monospace,monospace;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:2px 7px;white-space:nowrap}
+.soho-actions{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+.soho-cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:12px;padding:11px 14px;cursor:pointer;
+  background:var(--blue);color:#fff;font:700 14px 'Poppins',sans-serif;box-shadow:0 8px 18px -10px rgba(0,113,206,.85);transition:filter .15s}
+.soho-cta:hover{filter:brightness(1.08)}
+.soho-cta.ghost{background:#eef6ff;color:var(--blue);box-shadow:none;border:1.5px solid #c0d8f5}
+.soho-copy{border:0;background:none;color:var(--muted);font:700 12.5px 'Barlow Semi Condensed',sans-serif;cursor:pointer;padding:2px}
+.soho-copy:hover{color:var(--blue)}
+.soho-empty{padding:30px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:14px}
+.info-pill.fmc{border-color:#d9ccf5;color:#6c3bd9}
+
+/* Liberty Business in a Box · Safety Connection */
+.biab{margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.biab-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:22px 24px;color:#fff;
+  background:radial-gradient(500px 220px at 95% -40%,rgba(0,207,255,.35),transparent 70%),linear-gradient(118deg,#21232c 0%,#2A2C35 52%,#21303f 100%);position:relative}
+.biab-head::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#0071CE,#00CFFF 38%,#FF9119 72%,#FF5300)}
+.biab-kick{font:700 12px 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8fc6ff}
+.biab-head h2{font:800 26px 'Poppins',sans-serif;margin:4px 0 6px}
+.biab-head p{font-size:14px;color:#c9d6ea;max-width:720px;line-height:1.5}
+.biab-badge{font-size:12px;font-weight:800;background:#FF5300;color:#fff;border-radius:999px;padding:6px 12px;white-space:nowrap}
+.biab-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:20px 24px}
+.biab-card{display:flex;flex-direction:column;border:1.5px solid var(--line);border-radius:16px;padding:16px;background:#fbfdff}
+.biab-speed{font:800 26px 'Poppins',sans-serif;color:var(--ink)}
+.biab-name{font-size:13px;color:var(--muted);margin:2px 0 10px}
+.biab-row{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--ink-2);padding:6px 0;border-bottom:1px dashed var(--line-2)}
+.biab-row b{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:700;white-space:nowrap}
+.biab-total{display:flex;justify-content:space-between;align-items:baseline;margin:12px 0 14px;padding:10px 12px;border-radius:12px;background:#eef6ff}
+.biab-total span{font:700 12px 'Barlow Semi Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.biab-total b{font:800 22px 'Poppins',sans-serif;color:var(--blue)}
+.biab-total small{font-size:12px;color:var(--muted)}
+.biab-card .soho-cta{margin-top:auto}
+.biab-note{margin:0 24px 22px;font-size:13px;color:var(--muted);background:#fff8f3;border-left:4px solid #FF5300;border-radius:0 10px 10px 0;padding:10px 12px}
+@media(max-width:1000px){.biab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.biab-grid{grid-template-columns:1fr;padding:16px}.biab-head{padding:18px}}
+
+/* VS CLARO */
+#pane-vsclaro .page-head{margin-bottom:16px}
+.vs-table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm)}
+.vs-table{width:100%;border-collapse:collapse;min-width:640px;font-size:14px}
+.vs-table th{text-align:left;font:700 12px 'Barlow Semi Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding:14px 16px;border-bottom:1px solid var(--line);background:#f7f9fd}
+.vs-table th.lib{background:#e4f0fb;color:var(--blue)}
+.vs-table td{padding:14px 16px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+.vs-table tr:last-child td{border-bottom:0}
+.vs-table td.pkg{font-weight:700;color:var(--ink)}
+.vs-table td.lib{background:#f2f8fe;font-weight:700;color:var(--ink)}
+.vs-table td.num{font-family:'IBM Plex Mono',ui-monospace,monospace;white-space:nowrap}
+.vs-table small{font-family:'Barlow Semi Condensed',sans-serif;color:var(--muted);font-weight:600}
+.vs-na{color:#a0abbd}
+.vs-chip{display:inline-block;font-size:12px;font-weight:800;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.vs-chip.win{background:#e6f5ee;color:#187a4e}
+.vs-chip.lose{background:#fff2e0;color:#b35a00}
+.vs-chip.na{background:#f1f5fb;color:var(--muted)}
+.vs-foot{font-size:12.5px;color:var(--muted);margin:10px 4px 0}
+.vs-h{font:800 20px 'Poppins',sans-serif;margin:28px 0 12px;color:var(--ink)}
+.vs-wins{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.vs-win{background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:16px;padding:16px;box-shadow:var(--shadow-sm)}
+.vs-win i{font-style:normal;font-size:22px;display:block;margin-bottom:8px}
+.vs-win b{display:block;font:700 15px 'Poppins',sans-serif;margin-bottom:6px;color:var(--ink)}
+.vs-win p{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.vs-caution{margin-top:18px;font-size:14px;line-height:1.55;background:#fff8f3;border-left:4px solid #FF5300;border-radius:0 14px 14px 0;padding:14px 16px;color:var(--ink-2)}
+.vs-src{margin-top:8px;font-size:12px;color:var(--muted)}
+.vs-src a{color:var(--blue)}
+.vs-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.vs-btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:12px;padding:11px 16px;cursor:pointer;background:var(--blue);color:#fff;font:700 14px 'Poppins',sans-serif}
+.vs-btn.ghost{background:#eef6ff;color:var(--blue);border:1.5px solid #c0d8f5}
+@media(max-width:1000px){.vs-wins{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.vs-wins{grid-template-columns:1fr}}
+
+/* ── Our Plans v2: ① product → ② speed ─────────────────────────────────── */
+#plans-controls,#plans-info{display:block}
+.sp-step{display:flex;align-items:center;gap:10px;font:800 13px 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:6px 0 10px}
+.sp-n{display:grid;place-items:center;width:24px;height:24px;border-radius:8px;background:var(--blue);color:#fff;font:800 12px 'Poppins',sans-serif;letter-spacing:0}
+.sp-products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.sp-prod{display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;font-family:inherit;color:var(--ink);
+  background:#fff;border:2px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow-sm);transition:all .16s}
+.sp-prod:hover{border-color:#b8d3f2;transform:translateY(-2px);box-shadow:var(--shadow)}
+.sp-prod.on{border-color:var(--blue);background:linear-gradient(180deg,#f2f8fe,#fff);box-shadow:0 0 0 4px rgba(0,113,206,.12),var(--shadow)}
+.sp-prod.is-biab.on{border-color:#FF5300;background:linear-gradient(180deg,#fff6f0,#fff);box-shadow:0 0 0 4px rgba(255,83,0,.12),var(--shadow)}
+.sp-ic{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#eef6ff;color:var(--blue)}
+.sp-ic svg{width:22px;height:22px}
+.sp-prod.is-biab .sp-ic{background:#fff1eb;color:#FF5300}
+.sp-prod.on .sp-ic{background:var(--blue);color:#fff}
+.sp-prod.is-biab.on .sp-ic{background:#FF5300}
+.sp-pt b{display:block;font:800 16px/1.2 'Poppins',sans-serif}
+.sp-pt small{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.35}
+.sp-from{margin-top:auto;font-size:13px;color:var(--muted)}
+.sp-from b{color:var(--blue);font-family:'Poppins',sans-serif}
+.sp-prod.is-biab .sp-from b{color:#FF5300}
+.sp-from i{display:block;font-style:normal;font-size:12px;margin-top:2px}
+.sp-opts{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin-bottom:16px}
+.sp-fmc{display:flex;align-items:center;gap:10px;cursor:pointer;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:8px 14px}
+.sp-fmc input{display:none}
+.sp-sw{position:relative;width:38px;height:22px;border-radius:999px;background:#cfd8e6;transition:background .15s;flex:none}
+.sp-sw::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left .15s}
+.sp-fmc.on{border-color:#cdb9f5;background:#faf8ff}
+.sp-fmc.on .sp-sw{background:#6c3bd9}
+.sp-fmc.on .sp-sw::after{left:19px}
+.sp-fmc b{display:block;font-size:14px;color:var(--ink)}
+.sp-fmc small{display:block;font-size:12px;color:var(--muted)}
+.sp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.sp-alt{font-size:12.5px;color:var(--muted);margin:-8px 0 12px}
+.sp-alt b{color:var(--ink)}
+.soho-tag.warn{background:#fff2e0;color:#b35a00}
+.soho-tag.muted{background:#f1f5fb;color:var(--muted)}
+.soho-tag.biab{background:#fff1eb;color:#FF5300}
+.biab-card2::before{background:linear-gradient(90deg,#FF5300,#FF9119)!important}
+.biab-intro{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px;padding:16px 18px;border-radius:16px;color:#fff;
+  background:radial-gradient(500px 220px at 95% -40%,rgba(255,145,25,.35),transparent 70%),linear-gradient(118deg,#21232c 0%,#2A2C35 52%,#21303f 100%)}
+.biab-intro b{font:800 17px 'Poppins',sans-serif}
+.biab-intro p{font-size:14px;color:#c9d6ea;margin-top:4px;max-width:760px;line-height:1.5}
+.biab-addons{background:#fff8f3;border:1px solid #ffd9c2;border-radius:12px;padding:8px 12px;margin-bottom:14px}
+.biab-addons-h{font:800 11px 'Barlow Semi Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#b33a00;margin:2px 0 4px}
+.biab-addons .biab-row:last-child{border-bottom:0}
+.biab-what{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;font-size:14px;line-height:1.55;color:var(--ink-2)}
+.biab-what>b{font:800 15px 'Poppins',sans-serif;color:var(--ink)}
+.biab-what ul{margin:8px 0 8px 18px;display:grid;gap:6px}
+.biab-what p{color:var(--muted);font-size:13px}
+@media(max-width:1000px){.sp-products{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.sp-products{grid-template-columns:1fr}.sp-prod{flex-direction:row;align-items:center}.sp-from{margin-top:0;margin-left:auto;text-align:right}}
