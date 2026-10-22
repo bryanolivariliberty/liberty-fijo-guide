@@ -1,0 +1,130 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   BRAND ALIGNMENT — B2B Fixed Sales Tool ↔ B2B Mobile Sales Tool (UAT)
+   Loaded LAST, after styles.css and salesflow.css. It only restyles: no
+   wording, tabs or behavior change. Delete this file + its <link> to revert.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --blue:#0071CE; --blue-800:#0058a6; --blue-900:#00089B; --blue-100:#e4f0fb; --blue-50:#f2f8fe;
+  --orange:#FF5300; --orange-600:#e64a00;
+  --ink:#0a1a2e; --ink-2:#2a3a52; --muted:#5a6a80;
+  --line:#dbe5f1; --line-2:#e8eef6; --bg:#f1f5fb; --t-coax:#0071CE;
+  --r-sm:9px; --r:13px; --r-lg:16px; --r-xl:20px;
+  --shadow-sm:0 1px 2px rgba(16,38,72,.05),0 1px 3px rgba(16,38,72,.05);
+  --shadow:0 6px 22px rgba(16,38,72,.08);
+  --shadow-lg:0 16px 48px rgba(16,38,72,.13);
+  /* The header scrolls away; only the tabs stick */
+  --header-h:0px;
+  --tabs-h:74px;
+  --lb2:#00CFFF; --lo2:#FF9119;
+  --font-head:'Poppins',sans-serif;
+  --font-body:'Barlow Semi Condensed','Barlow',sans-serif;
+}
+
+body{ font-family:var(--font-body); background:var(--bg); color:var(--ink); }
+h1,h2,h3,h4,
+.page-head-left h1,.section-head h2,.how-title,.rule-title,.j-card-name{ font-family:var(--font-head); }
+
+/* ── HEADER: dark rounded card with the brand gradient underline ─────────── */
+.header{
+  position:relative; top:auto; z-index:5;
+  height:auto; min-height:0;
+  max-width:1320px; margin:20px auto 0;
+  width:calc(100% - 2*max(16px,2vw));
+  padding:1.15rem 1.6rem;
+  border-radius:var(--r-lg);
+  background:linear-gradient(118deg,#21232c 0%,#2A2C35 52%,#21303f 100%);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.header::after{
+  content:''; position:absolute; left:0; right:0; bottom:0; height:3px;
+  background:linear-gradient(90deg,var(--blue) 0%,var(--lb2) 38%,var(--lo2) 72%,var(--orange) 100%);
+}
+.brand{ gap:15px; }
+/* assets/liberty-logo.png has a wide transparent border (artwork is ~52% of its
+   height). Negative margins trim it so the visible logo is --lh tall, the same
+   size as the Mobile tool's logo. The PDFs keep using the image untouched. */
+.brand-logo{ --lh:44px; filter:none; width:auto;
+  height:calc(var(--lh) / .5153);
+  margin:calc(var(--lh) / .5153 * -.2206) calc(var(--lh) / .5153 * 2.2936 * -.148)
+         calc(var(--lh) / .5153 * -.2641) calc(var(--lh) / .5153 * 2.2936 * -.1392); }
+.brand-divider{ display:none; }
+.brand-meta-title{ font-family:var(--font-head); font-size:23px; font-weight:700; letter-spacing:-.01em; line-height:1.04; }
+
+.lang-toggle{ background:rgba(255,255,255,.12); border:0; border-radius:20px; }
+.lang-btn{ font-family:var(--font-body); font-size:12px; font-weight:700; letter-spacing:.04em; padding:5px 14px; border-radius:20px; color:rgba(255,255,255,.65); }
+.lang-btn.on{ background:var(--orange); color:#fff; box-shadow:none; }
+.header-pill{ background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.14); }
+.header-pill.uat{ background:var(--orange); border-color:var(--orange); }
+.header-switch{ color:var(--blue); font-family:var(--font-body); font-size:12.5px; }
+
+/* ── TABS: icon-over-label cards, sticky at the TOP on every screen size ── */
+.tabs-wrap{ position:sticky; top:0; z-index:99; background:var(--bg); border-bottom:0; padding:12px 0 10px; }
+.tabs-nav{ height:auto; max-width:1320px; padding:0 max(16px,2vw); gap:6px; justify-content:space-between; }
+.tab-btn{
+  flex:1 0 auto; min-width:96px;
+  flex-direction:column; justify-content:center; gap:4px;
+  height:auto; padding:9px 12px;
+  background:#fff; border:1.5px solid var(--line); border-radius:var(--r-sm);
+  font-family:var(--font-body); font-size:12px; font-weight:600; color:var(--muted);
+  box-shadow:var(--shadow-sm); transition:all .15s;
+}
+.tab-btn .ic svg{ width:19px; height:19px; }
+.tab-btn:hover{ border-color:var(--lb2); color:var(--blue); box-shadow:var(--shadow); }
+.tab-btn:hover .ic{ color:var(--blue); }
+.tab-btn.active{ background:var(--blue); border-color:var(--blue); color:#fff; box-shadow:0 4px 14px rgba(0,113,206,.32); }
+.tab-btn.active .ic{ color:#fff; }
+.tab-btn.active::after{ display:none; }
+.tab-badge{ position:absolute; top:4px; right:6px; margin:0; }
+
+main{ padding-top:14px; }
+
+/* ── Cards & page heads pick up the Mobile tool's radius/shadow ─────────── */
+.page-head-eyebrow{ color:var(--blue); }
+.how-card,.rule-box,.plan-card-v2,.feature-card,.tbl-card,.j-sumbox,.j-stepper,.promo-card{ border-color:var(--line); }
+
+/* ── Sales Flow / How to Use blocks use the same blue ───────────────────── */
+.sf{ --lib:#0071CE; --accent:#0071CE; --accent-soft:#e4f0fb; }
+
+/* ── Phones: tabs stay on TOP (not bottom) ─────────────────────────────── */
+@media (max-width:768px){
+  .header{ margin-top:12px; padding:.85rem 1rem; border-radius:14px; width:calc(100% - 24px); gap:10px; }
+  .brand-logo{ --lh:36px; }
+  .brand-meta{ display:flex; }
+  .brand-meta-title{ font-size:18px; }
+  .tabs-wrap{ padding:10px 0 8px; }
+  .tabs-nav{ justify-content:flex-start; padding:0 12px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; }
+  .tab-btn{ flex:0 0 auto; min-width:84px; padding:8px 10px; font-size:11px; scroll-snap-align:start; }
+  :root{ --tabs-h:66px; }
+}
+@media (max-width:480px){
+  .header{ gap:8px; padding:.75rem .8rem; }
+  .brand{ gap:9px; min-width:0; flex-shrink:1; }
+  .brand-meta{ min-width:0; }
+  .brand-meta-title{ font-size:14.5px; line-height:1.1; white-space:normal; max-width:9.5em; }
+  .brand-logo{ --lh:28px; }
+  .header-switch{ padding:6px 8px; }
+  .lang-btn{ padding:4px 9px; font-size:11px; }
+}
+@media (max-width:520px){ .sf details.disc-pop>summary .ds-main{ flex:1 1 100%; } }
+@media print{ .tabs-wrap{ position:static; } }
+
+/* ── Header line + footer (same as the B2B Sales Hub) ──────────────────── */
+.brand-meta-sub{display:block;font:600 11px 'Barlow Semi Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8fc6ff;margin-top:4px}
+.lb-footer{max-width:1320px;margin:12px auto 0;padding:16px max(16px,2vw) calc(28px + env(safe-area-inset-bottom,0px));
+  border-top:1px solid var(--line);text-align:center;font-size:12.5px;line-height:1.7;color:var(--muted)}
+.lb-footer b{color:var(--ink)}
+@media (max-width:768px){ .brand-meta-sub{display:none} }
+
+/* ── Phones: show that the tab bar scrolls (fade + › arrow + first-time peek) ── */
+.lb-tabs-more{display:none}
+.lb-scroll-hint.can-right .lb-tabs-more{display:flex}
+.lb-tabs-more{position:sticky;right:0;flex:0 0 auto;align-self:stretch;align-items:center;justify-content:flex-end;
+  width:52px;margin-left:-52px;padding-right:2px;border:0;cursor:pointer;z-index:2;
+  background:linear-gradient(90deg,rgba(241,245,251,0) 0%,rgba(241,245,251,.92) 45%,#f1f5fb 70%)}
+.lb-tabs-more span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#0071CE;color:#fff;
+  font:800 18px/1 'Poppins',sans-serif;box-shadow:0 4px 12px rgba(0,113,206,.35);animation:lbNudge 1.6s ease-in-out 3}
+@keyframes lbNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+.lb-scroll-hint.can-left{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22px);mask-image:linear-gradient(90deg,transparent 0,#000 22px)}
+@media(prefers-reduced-motion:reduce){.lb-tabs-more span{animation:none}}
