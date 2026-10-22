@@ -20,12 +20,12 @@ function renderVsClaro(){
     ['📡','Cobertura en más del 90% de la isla','En dos opciones de conectividad: HFC y FTTx. Pregunte la dirección y confirme servicio antes de cotizar.'],
     ['🏆','Ofertas líderes en 500 MB y 1 GB','En 3P (Internet + Video EDP + Telefonía) Liberty está por debajo de Claro en 500–600 MB y en 1 GB.'],
     ['🔗','FMC: más ahorro al combinar','Con un móvil B2B activo, el 2P baja a $60.99 (500 MB) y $62.99 (1 GB), y FMC Double Bandwidth duplica la velocidad.'],
-    ['🛡️','Respaldo cuando más importa','Liberty Business Ongoing añade conectividad redundante donde el cliente tiene una conexión eléctrica alterna. Safety Connection incluye respaldo 5G con FortiExtender.']
+    ['🛡️','Respaldo cuando más importa','Liberty Business Ongoing añade conectividad redundante donde el cliente tiene una conexión eléctrica alterna. Safety Connection incluye respaldo LTE con FortiExtender.']
   ] : [
     ['📡','Coverage over 90% of the island','On two connectivity options: HFC and FTTx. Ask for the address and confirm service before you quote.'],
     ['🏆','Leading offers at 500 MB and 1 GB','On 3P (Internet + EDP Video + Phone) Liberty is below Claro at 500–600 MB and at 1 GB.'],
     ['🔗','FMC: more savings when you combine','With an active B2B mobile line, 2P drops to $60.99 (500 MB) and $62.99 (1 GB), and FMC Double Bandwidth doubles the speed.'],
-    ['🛡️','Backup when it matters most','Liberty Business Ongoing adds redundant connectivity where the customer has an alternate power connection. Safety Connection includes 5G backup with FortiExtender.']
+    ['🛡️','Backup when it matters most','Liberty Business Ongoing adds redundant connectivity where the customer has an alternate power connection. Safety Connection includes LTE backup with FortiExtender.']
   ];
   el.innerHTML = `
     <div class="page-head"><div class="page-head-left">
