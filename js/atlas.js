@@ -205,8 +205,8 @@ function atlasObjectionMatcher(q, n){
     const prod = productOf(n), spd = speedOf(n);
     if(!prod && !spd) return null;
     if(!/\b(precio|price|cuanto|how much|cuesta|cost|mrr|plan|cotiz|quote|\$)/.test(n) && !(prod && spd)) return null;
-    if(prod==='BIAB' || (spd==='100' || spd==='300')){
-      const map = {'100':'100M','300':'300M','500MB':'500M','1GB':'1000M'};
+    if(prod==='BIAB' || spd==='300'){
+      const map = {'300':'300M','500MB':'500M','1GB':'1000M'};
       const list = spd && map[spd] ? BIAB_SAFETY.filter(b=>b.speed===map[spd]) : BIAB_SAFETY;
       return {html:`<div class="atlas-k">Liberty Business in a Box · Safety Connection</div>`+
         list.map(b=>`<p><b>${b.speed.replace('M',' MB')}</b> — ${atlasMoney(b.total)}/${atlasT('mo','mes')} <span class="atlas-note">(2P ${atlasMoney(b.wan)} + ${atlasEsc(b.hw)} ${atlasMoney(b.hwPrice)} + WAN & MSS ${atlasMoney(b.wanMss)} + SIM ${atlasMoney(b.sim)} + IP ${atlasMoney(b.ip)})</span></p>`).join(''),
@@ -217,8 +217,8 @@ function atlasObjectionMatcher(q, n){
     const fmc = fmcOf(n);
     let list = SOHO_OFFERS.filter(o=>(!prod || o.svc===prod) && (!spd || o.bw===spd));
     if(/\bultimate\b/.test(n)) list = list.filter(o=>o.video==='Ultimate');
-    if(!list.length) return {html:atlasT(`There’s no ${prod||''} ${spd||''} offer in Our Plans. Available speeds are 500 MB, 600 MB and 1 GB (and 100–1000 MB in Safety Connection).`,
-                                         `No hay oferta ${prod||''} ${spd||''} en Nuestros Planes. Las velocidades son 500 MB, 600 MB y 1 GB (y 100–1000 MB en Safety Connection).`),
+    if(!list.length) return {html:atlasT(`There’s no ${prod||''} ${spd||''} offer in Our Plans. Available speeds are 500 MB, 600 MB and 1 GB (and 300–1000 MB in Safety Connection).`,
+                                         `No hay oferta ${prod||''} ${spd||''} en Nuestros Planes. Las velocidades son 500 MB, 600 MB y 1 GB (y 300–1000 MB en Safety Connection).`),
                              actions:[act('Open Our Plans','Abrir Nuestros Planes', ()=>go('planes'))]};
     // prefer the FMC / non-FMC variant the rep asked for
     const pick = list.filter(o => fmc ? o.fmc!=='no' : o.fmc!=='yes');
@@ -285,8 +285,8 @@ function atlasObjectionMatcher(q, n){
       `Las ofertas SOHO tienen el <b>mismo precio mensual en 24 o 36 meses</b>; solo cambia el código de descuento. Escoge el término en Nuestros Planes o en el paso Término de la Cotización.`),
       actions:[act('Open Our Plans','Abrir Nuestros Planes', ()=>go('planes'))], kb:'término contrato SOHO'})),
     I(['safety','box','biab','respaldo','backup','5g','fortiextender','fortigate','fex','sim card','add-ons incluidos'], ()=>({html:atlasT(
-      `<b>Liberty Business in a Box · Safety Connection</b>: 2P + FortiWiFi/FortiGate + FortiExtender 101F (5G backup) + WAN & MSS + SIM Card + Static IP. 100 MB $199.99 · 300 MB $207.99 · 500 MB $210.99 · 1000 MB $222.99. “Quote this plan” puts each add-on in the Cart as its own line.`,
-      `<b>Liberty Business in a Box · Safety Connection</b>: 2P + FortiWiFi/FortiGate + FortiExtender 101F (respaldo 5G) + WAN & MSS + SIM Card + IP estático. 100 MB $199.99 · 300 MB $207.99 · 500 MB $210.99 · 1000 MB $222.99. “Cotizar este plan” pone cada add-on en la Cotización como su propia línea.`),
+      `<b>Liberty Business in a Box · Safety Connection</b>: 2P + FortiWiFi/FortiGate + FortiExtender 101G (LTE backup, up to 300 Mbps) + WAN & MSS + SIM Card + Static IP. 300 MB $207.99 · 500 MB $210.99 · 1000 MB $222.99. “Quote this plan” puts each add-on in the Cart as its own line.`,
+      `<b>Liberty Business in a Box · Safety Connection</b>: 2P + FortiWiFi/FortiGate + FortiExtender 101G (respaldo LTE, hasta 300 Mbps) + WAN & MSS + SIM Card + IP estático. 300 MB $207.99 · 500 MB $210.99 · 1000 MB $222.99. “Cotizar este plan” pone cada add-on en la Cotización como su propia línea.`),
       actions:[act('See Safety Connection','Ver Safety Connection', ()=>{ state.soho = Object.assign(state.soho||{tech:'HFC',term:36,fmc:false}, {product:'BIAB'}); go('planes'); })], kb:'Liberty Business in a Box Safety Connection'})),
     I(['contrato','contract','soho contract','solicitud','pdf','propuesta','proposal'], ()=>({html:atlasT(
       `In the <b>Cart</b>: “Generate Proposal” or “Download PDF” for the proposal, and “Go to SOHO Contract” for the auto-filled contract.`,
