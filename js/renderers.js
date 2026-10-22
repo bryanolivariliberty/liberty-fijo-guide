@@ -265,6 +265,12 @@ function renderPlans(){
           state.prop.step = 4;
         }
       }
+      // UAT: the Proposal's bundle step requires at least one included voice line
+      // for 2P/3P; this shortcut skipped it, leaving the quote at 0 lines. Default
+      // to 1 (editable in the Bundle step) so Plans, Proposal and Sales Flow agree.
+      if (state.prop.bundle && (state.prop.bundle==='p2' || state.prop.bundle.startsWith('p3')) && !state.prop.voice.included) {
+        state.prop.voice.included = 1;
+      }
       setTab('proposal');
     });
   });
@@ -481,7 +487,7 @@ function renderAddons(){
   `).join('');
 
   // Hardware
-  $('#hw-grid').innerHTML = HARDWARE.map(h=>`
+  $('#hw-grid').innerHTML = HARDWARE.filter(h=>!h.biab).map(h=>`
     <div class="feature-card">
       <div class="feature-icon green">${icon(h.id==='hw1'?'shield':h.id==='hw2'||h.id==='hw3'?'hardware':'cog')}</div>
       <div class="feature-body">
